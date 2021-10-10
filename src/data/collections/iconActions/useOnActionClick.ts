@@ -18,9 +18,9 @@ export interface ExecuterProps {
   queryClient: QueryClient;
 }
 
-export type ActionExecuter = (props: ExecuterProps) => Promise<void>;
-
-const actionExecuters: { [action: string]: ActionExecuter } = {
+const actionExecuters: {
+  [action: string]: (props: ExecuterProps) => Promise<void>;
+} = {
   'open-in-finder': openInFinder,
   'delete-icon': deleteIcon,
   'clipboard-copy-template': copyToClipboardFromTemplate,
